@@ -1,15 +1,47 @@
-// import important parts of sequelize library
+// Import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import our database connection from config.js
+// Import our database connection from config.js
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
 
-// set up fields and rules for Product model
+// Set up fields and rules for Product model
 Product.init(
   {
-    // define columns
+    // Id column defined
+    id: { 
+      type: DataTypes.INTEGER, // Set integer as the data type
+      allowNull: false, // Do not allow null values
+      primaryKey: true, // Set as the primary key
+      autoIncrement: true, // Auto increment values for new records
+    },
+    // Product name colum defined
+    product_name: {
+      type: DataTypes.STRING, // Set string as the data type 
+    },
+    // Price column defined
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false, // Do not allow null values
+      validate: {
+        isDecimal: true, // Validates that the value is a decimal number 
+      },
+    },
+    stock: { 
+      type: DataTypes.INTEGER, // Set integer as the data type
+      allowNull: false, 
+      defaultValue: 10, // Set the default value to 10
+      validate: {
+        isNumeric: true, // Validates that the number is numeric
+      },
+    },
+    category_id: { 
+      type: DataTypes.INTEGER, // Set integer as the data type
+      references: {
+        model: "category", // References the Category models id
+      },
+    },
   },
   {
     sequelize,

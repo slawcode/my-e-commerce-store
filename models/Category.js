@@ -13,7 +13,7 @@ Category.init(
       primaryKey: true, // Set as the primary key
       autoIncrement: true, // Auto increment values for new records
     },
-    // Category_name colum defined
+    // Category_name column defined
     category_name: {
       type: DataTypes. STRING, // Set string as the data type
     }
