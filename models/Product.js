@@ -28,6 +28,7 @@ Product.init(
         isDecimal: true, // Validates that the value is a decimal number 
       },
     },
+    // Stock column defined
     stock: { 
       type: DataTypes.INTEGER, // Set integer as the data type
       allowNull: false, 
@@ -36,10 +37,11 @@ Product.init(
         isNumeric: true, // Validates that the number is numeric
       },
     },
+    // Category_id column defined
     category_id: { 
       type: DataTypes.INTEGER, // Set integer as the data type
       references: {
-        model: "category", // References the Category models id
+        model: "category", // References the 'Category' models id
       },
     },
   },
