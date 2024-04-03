@@ -1,5 +1,6 @@
 const { Product } = require('../models');
 
+// Array of json objects with values 
 const productData = [
   {
     product_name: 'Plain T-Shirt',
