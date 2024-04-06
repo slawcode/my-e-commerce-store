@@ -21,10 +21,14 @@ router.get('/:id', async (req, res) => {
     const oneCategory = await Category.findByPk(req.params.id, {
       include: [{ model: Product }]
     });
-  }
-  // Be sure to include its associated Products
-  if (!Category) {
-
+    // If the category is not found, send a 404 status with a  message
+    if (!oneCategory) {
+    res.status(404).json({ message: 'No Category found with this id' });
+    return;
+    }
+    res.status(200).json(oneCategory);
+  } catch (err) {  // If there is an error, send a 500 status
+    res.status(500).json(err);
   }
 });
 
