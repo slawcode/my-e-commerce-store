@@ -52,10 +52,34 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // Update a tag's name by its `id` value
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(data => {
+    res.json(data);
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(400).json(err);
+  });
 });
 
 router.delete('/:id', (req, res) => {
   // Delete on tag by its `id` value
+  Tag.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(data => {
+    res.json(data);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(400).json(err);
+  });
 });
 
 module.exports = router;
