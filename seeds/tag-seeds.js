@@ -27,6 +27,8 @@ const tagData = [
   },
 ];
 
+// Tells Sequelize to bulk create the array
 const seedTags = () => Tag.bulkCreate(tagData);
 
+// Exports function
 module.exports = seedTags;
