@@ -13,7 +13,7 @@
 
 ## Usage
 - 
-- Video showing usage of this project in terminal.
+- Video showing usage of this project in he terminal.
 
 - Screenshots showing usage of this project.
 
