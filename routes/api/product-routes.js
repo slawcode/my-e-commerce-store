@@ -5,7 +5,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // Get all products
 // This route uses async/await with '.catch()' for errors
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // Find all products
   // Be sure to include its associated Category and Tag data
   //   Product.findAll({
@@ -15,32 +15,47 @@ router.get('/', (req, res) => {
   //   {
   //     model: Tag,
   //     through: ProductTag,
-  //   }]
   //   })
-  // })
-  // .then(data => {
+  //   })
+  //   .then(data => {
   //   res.json(data);
-  // })
-  // .catch(err => {
+  //   })
+  //   .catch(err => {
   //   console.log(err);
-  // });
+  //  });
   try {
     const products = await Product.findAll({
       include: [{ model: Category }, { model: Tag}]
     });
-    res.status(200).json(products);
+    res.status(200).json(products); // 200 status code means the rrequest is successful
   } catch (err) {
     res.status(500).json(err);
   }
+}); 
 
 // Get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // Find a single product by its `id`
   // Be sure to include its associated Category and Tag data
+  try {
+    const product = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }, { model: Tag }],
+    });
+
+    if (!product) {
+      res.status(404).json({ message: 'No product found with this id!'});
+      return;
+    }
+    res.status(200).json(product);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Create new product
 router.post('/', (req, res) => {
+  Product.create(req.body)
+  .then
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -49,6 +64,19 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
+
+// Create a product
+router.post('/', async (req, res) => {
+  try {
+    const locationData = await Product.create({
+      reader_id: req.body.reader_id,
+    });
+    res.status(200).json(locationData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
   Product.create(req.body)
     .then((product) => {
       // Ff there's product tags, we need to create pairings to bulk create in the ProductTag model
