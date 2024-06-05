@@ -7,6 +7,7 @@
 - This project was built using Express.js 4.17.1, Sequelize 5.21.7, MySQL2 2.1.0, Nodemon 2.3.3, Dotenv 8.2.0, Node.js, Postman and JavaScript.
 - Challenges with this project arose mostly with the POST route in the product-routes.js file.
 - There was also a syntax error in the Category.js file on line 11, which was causing erros in the terminal. Once this error was fixed, the terminal issues were resolved. 
+- Another challenge, as with many assignments, is time as the syntax, and code in general, can be timely to write along with getting terminal errors resolved and the application running properly. 
 - I learned how to implement CRUD operations to create, delete and update products on an e-commerce retail site. I also gained familarity with Postman. 
 - Future devlopment for this project will be creating a front end for use in the browser.
 
