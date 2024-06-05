@@ -8,7 +8,7 @@ Category.init(
   { // Defining fields/columns on model
     // Id column defined
     id: {
-      type: Datatypes.INTEGER, // Set integer as the data type 
+      type: DataTypes.INTEGER, // Set integer as the data type 
       allowNull: false, // Do not allow null values 
       primaryKey: true, // Set as the primary key
       autoIncrement: true, // Auto increment values for new records
