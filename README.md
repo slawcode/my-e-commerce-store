@@ -13,16 +13,39 @@
 ## Installation
 - Clone this repository to local environment
 - Open repository in a source code editor (like Visual Studio Code)
-- Run 'npm run seed' command in terminal 
-- Run 'npm start' command in the terminal  
+- Set up npm package and install required dependencies with the following commands in the terminal:
+    • npm i
+    • npm nodemon
+    • npm i express
+    • npm i mysql2
+    • npm i sequelize
+    • npm i dotenv
+- Add a .env file and update the password to reflect your my MySQL password
+- Create your database with the following commands and/or instructions: 
+    • mysql -u root -p 
+    • Enter your MySQL password
+    • source db/schema.sql 
+- Run the application with the following commands in the terminal:
+    • Run 'npm run seed' command in terminal 
+    • Run 'npm start' command in the terminal  
 
 ## Usage
-- 
-- Video showing usage of this project in the terminal.
+- Video showing usage of this project.
+
+https://drive.google.com/file/d/1-zOw2PcWElPLSLjdyKT2k9Z9uHxsVa9D/view?usp=sharing
 
 - Screenshots showing usage of this project.
 
-![]()
+![Screenshot of application in Postman to GET all products](images/screenshot1.png)
+![Screenshot of application in Postman to GET all categories](images/screenshot2.png)
+![Screenshot of application in Postman to GET all tags](images/screenshot3.png)
+![Screenshot of application in Postman getting all products](images/screenshot4.png)
+![Screenshot of application in Postman with POST request](images/screenshot5.png)
+![Screenshot of application in Postman with DELETE tag 1 from previous POST](images/screenshot6.png)
+![Screenshot of application in Postman with GET request for tag 1 from previous POST](images/screenshot7.png)
+![Screenshot of application in Postman to GET all tags and reflect changes from previous request](images/screenshot8.png)
+![Screenshot of application in Postman to GET all products and reflect Thermos addition from previous request ](images/screenshot9.png)
+![Screenshot of application in Postman with error message for POST because price and product cannot be null](images/screenshot10.png)
 
 ## License 
 - ISC
