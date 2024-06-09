@@ -31,7 +31,7 @@
     • Run 'npm start' command in the terminal  
 
 ## Usage
-- Video showing usage of this project.
+- Video showing usage of this project:
 
 https://drive.google.com/file/d/1-zOw2PcWElPLSLjdyKT2k9Z9uHxsVa9D/view?usp=sharing
 
